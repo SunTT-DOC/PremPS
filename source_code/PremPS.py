@@ -7,7 +7,6 @@ from collections import defaultdict
 import pandas as pd
 import rpy2.robjects as robjects
 
-# if this case, the maximal inputchains should be 62.
 ascii_cases = ascii_uppercase + ascii_lowercase + ''.join([str(i) for i in range(0,10)])
 r = robjects.r
 r('''library(randomForest)''')
@@ -37,6 +36,7 @@ os.system('mkdir %s' % pathoutput)
 
 normal_format_pro = ['CYS','GLN','ILE','SER','VAL','MET','ASN','PRO','LYS','THR','PHE','ALA','HIS','GLY','ASP','LEU',
                      'ARG','TRP','GLU','TYR']
+					 
 # map residue name three letters to one
 map_three_one = {"GLY": "G", "ALA": "A", "SER": "S", "THR": "T", "CYS": "C",
                  "VAL": "V", "LEU": "L", "ILE": "I", "MET": "M", "PRO": "P",
@@ -297,7 +297,7 @@ def wtpdb():
                 pdball.append(pdb)
 
 
- # calculate secondary structure  with DSSP using wild type crystal structure of mutchain, 1YYJ_A_1.pdb, produce 1YYJ.dssp
+# calculate secondary structure  with DSSP using wild type crystal structure of mutchain, 1YYJ_A_1.pdb, produce 1YYJ.dssp
 def dssp():
     pdball = []
     with open(in_file + ".cleaned", 'r') as f:
@@ -310,7 +310,7 @@ def dssp():
                 os.system('%s %s/%s.pdb %s/%s.dssp' % (pathmkdssp,pathoutput, pdb, pathoutput, pdb))
 
 
-# dOMH
+# DOMH
 def hydrophobicity_scales():
     hydrophobicity_scales = pd.read_csv(pathpara + '/hydrophobicity_scales.txt', header=0, index_col=0,sep = '\t')
     with open('{}/{}_hydroscales.txt'.format(pathoutput, jobid), 'w') as fw, open(in_file + '.cleaned') as f:
@@ -328,7 +328,7 @@ def hydrophobicity_scales():
             fw.write('{}\n'.format('\t'.join([pdb, Mutation_cleaned, dhydroscales_omh])))
 
 
-# dCS
+# DCS
 def run_provean():
     mutchainall = []
     with open(in_file + ".cleaned", 'r') as f1:
@@ -617,7 +617,7 @@ def vmd_wt():
     f.close()
 
 
-# make inputfile for foldx4 with mutchain for calculating folding free energy
+# make inputfile for foldx5 with mutchain for calculating folding free energy
 # produce individual_list_1YYJ_A_PA1A.txt,  foldx_buildmodel_1YYJ_A_PA1A.txt,   1YYJ_A_Repair_PA1A.pdb
 def inputfoldx():
     f = open(in_file + ".cleaned", 'r')
@@ -663,7 +663,7 @@ def runfoldx_mut():
 
 
 # split chains and produce pdb files for each chain of mutant pdb, which are used for VMD.
-# produce 1A43_G9A_CH1.pdb and 1A43_G9A_CH2.pdb by 1A43_G9A.pdb
+# produce 1YYJ_PA1A_CH1.pdb by 1YYJ_PA1A.pdb
 def splitchain_mut():
     f = open(in_file + ".cleaned", 'r')
     _unused = f.next()
