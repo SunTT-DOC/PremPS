@@ -21,7 +21,7 @@ You can download [releases](https://github.com/minghuilab/PremPS/releases) on gi
 </font>
 
 ## Installation
-<font size=6>
+<font size=8>
 
 I. PREREQUISITES
 
@@ -61,9 +61,13 @@ PremPS requires the following software and packages.
 
    https://www.ks.uiuc.edu/Research/vmd/
 
+6. Python packages: pandas, collections, rpy2
+
+7. R packages: randomForest
+
 </font>
 
-<font size=6>
+<font size=8>
 
 II. INSTALLATION INSTRUCTIONS
 
@@ -75,19 +79,15 @@ II. INSTALLATION INSTRUCTIONS
 
 2. Download and unpack the distribution:
 
-<font size=4>
-
-	$ wget https://github.com/minghuilab/PremPS/archive/PremPS-1.0.0.tar.gz
-	$ tar -zxvf PremPS-1.0.0.tar.gz
-
-</font>
+	`$ wget https://github.com/minghuilab/PremPS/archive/PremPS-1.0.0.tar.gz`
+	`$ tar -zxvf PremPS-1.0.0.tar.gz`
 
 3. Change to the source directory:
 	`$ cd PremPS-1.0.0`
 
 </font>
 
-<font size=6>
+<font size=8>
 
 III. RUNNING PremPS
 
@@ -97,31 +97,8 @@ III. RUNNING PremPS
 
 	$ python PremPS.py -i 2020100417132606935696574
 
-<font size=4> 
-  
-3. Download python 2.7 and the following python packages.
+## Platform
+PremPS is only intended to run on linux operating systems and on a compute server.
 
-</font>
-
-<font size=2.5>
-
-- pandas
-- collections
-- rpy2
-
-</font>
-
-<font size=4>
-
-4. Download R 3.4.0 or newer and the following R packages.
-
-</font>
-
-<font size=2.5>
-
-- randomForest
-
-</font>
-
-## Command
-	$ python PremPS.py -i 2020100417132606935696574
+## Issues
+You will need to have python>=2.7 and R>=3.4.0.
