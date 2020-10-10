@@ -84,6 +84,7 @@ II. INSTALLATION INSTRUCTIONS
 	`$ tar -zxvf v1.0.0.tar.gz`
 
 3. Change to the source directory:
+
 	`$ cd PremPS-1.0.0`
 
 </font>
