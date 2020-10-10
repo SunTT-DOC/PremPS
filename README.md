@@ -13,11 +13,17 @@ PremPS uses a novel scoring function composed of only ten features and trains on
 
 **inputfiles/:** parameter files that will be called in PremPS.py.
 
-**Example/:** an example for running PremPS.py, which jobid is 2020100417132606935696574. When you need to submit a job, you need to make a directory with .input (the format should be consistent with the jobid.input) and .pdb in it.
+**example/:** an example for running PremPS.py, which jobid is 2020100417132606935696574. When you need to submit a job, you need to make a directory with .input (the format should be consistent with the jobid.input) and .pdb in it.
 
-**PremPS.R:** code for producing figures and tables in the PremPS article.
+## Datasets releases
 
-**Files/:** files of S5296 and each test set that will be called in PremPS.R (need to change the working directory).
+**S5296:** the training set for parameterizing PremPS model and it contains 5,296 single mutations.
+
+**S2648:** the forward mutataions in S5296.
+
+**S921:** the independent test set for parameterizing PremPS model and it contains 921 single mutations from 54 proteins.
+
+**Eight test sets/:** test sets used to estimate the performance of PremPS and compare with other methods.
 
 </font>
 
@@ -76,4 +82,4 @@ PremPS uses a novel scoring function composed of only ten features and trains on
 </font>
 
 ## Command
-    $ python PremPS.py -i jobid
+	$ python PremPS.py -i 2020100417132606935696574
