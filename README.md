@@ -16,38 +16,90 @@ We recommend that most users who just want to obtain the predictions of changes 
 ## Source code releases
 <font size=4> 
   
-You can download releases on github.
-
-## Datasets releases
-
-**S5296:** the training set for parameterizing PremPS model and it contains 5,296 single mutations.
-
-**S2648:** the forward mutataions in S5296.
-
-**S921:** the independent test set for parameterizing PremPS model and it contains 921 single mutations from 54 proteins.
-
-**Eight test sets/:** test sets used to estimate the performance of PremPS and compare with other methods.
+You can download [releases](https://github.com/minghuilab/PremPS/releases) on github.
 
 </font>
 
 ## Installation
-<font size=4> 
-  
-1. Download this directory and put it in Linux.
-  
-2. Download softwares needed in source code, including DSSP, PROVEAN, PSI-BLAST, FoldX, VMD. 
+<font size=6>
+
+I. PREREQUISITES
+
+</font> 
+
+<font size=4>
+ 
+PremPS requires the following software and packages.
+
+1. DSSP
+
+   This is available at the DSSP website.
+
+   https://swift.cmbi.umcn.nl/gv/dssp/
+
+2. PROVEAN
+
+   This is available at the PROVEAN website.
+
+   http://provean.jcvi.org/index.php/
+
+3. NCBI BLAST 2.4.0
+
+   This is available at the NCBI ftp site.
+
+   ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.4.0/
+
+4. FoldX
+
+   This is available at the FOLDX website.
+
+   http://foldxsuite.crg.eu/
+
+5. VMD
+
+   This is available at the VMD website.
+
+   https://www.ks.uiuc.edu/Research/vmd/
 
 </font>
 
-<font size=2.5>
-  
-- DSSP: https://swift.cmbi.umcn.nl/gv/dssp/ 
-- PROVEAN: http://provean.jcvi.org/index.php/
-- PSI-BLAST: https://blast.ncbi.nlm.nih.gov/Blast.cgi
-- FoldX: http://foldxsuite.crg.eu/
-- VMD: https://www.ks.uiuc.edu/Research/vmd/
+<font size=6>
+
+II. INSTALLATION INSTRUCTIONS
+
+</font> 
+
+<font size=4>
+
+1. Install prerequisites described above.
+
+2. Download and unpack the distribution:
+
+	`$ wget https://github.com/minghuilab/PremPS/archive/PremPS-1.0.0.tar.gz`
+	`$ tar -zxvf PremPS-1.0.0.tar.gz`
+
+3. Change to the source directory:
+	`$ cd PremPS-1.0.0`
 
 </font>
+
+<font size=6>
+
+III. RUNNING PremPS
+
+</font> 
+
+<font size=4>
+
+1. Install prerequisites described above.
+
+2. Download and unpack the distribution:
+
+	`$ wget https://github.com/minghuilab/PremPS/archive/PremPS-1.0.0.tar.gz`
+	`$ tar -zxvf PremPS-1.0.0.tar.gz`
+
+3. Change to the source directory:
+	`$ cd PremPS-1.0.0`
 
 <font size=4> 
   
@@ -71,16 +123,7 @@ You can download releases on github.
 
 <font size=2.5>
 
-- vioplot
-- gplots
-- ROCR
-- pROC
 - randomForest
-- stringr
-- mccr
-- cocor
-- caTools
-- readxl
 
 </font>
 
