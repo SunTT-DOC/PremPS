@@ -8,7 +8,7 @@
 
 **RS2297.txt** is the subset of S2648 that can be mapped to multiple protein structures.
 
-**MS2297.txt** is the results of S2648 using homology modeled structures.
+**MS2297.txt** is the results of S2297 using homology modeled structures.
 
 **Selected Structures.rar** is the crystal structures in S2648.
 
