@@ -30,9 +30,9 @@ PremPS uses a novel scoring function composed of only ten features and trains on
 ## Installation
 <font size=4> 
   
-1.Download this directory and put it in Linux.
+1. Download this directory and put it in Linux.
   
-2.Download softwares needed in source code, including DSSP, PROVEAN, PSI-BLAST, FoldX, VMD. 
+2. Download softwares needed in source code, including DSSP, PROVEAN, PSI-BLAST, FoldX, VMD. 
 
 </font>
 
@@ -48,7 +48,7 @@ PremPS uses a novel scoring function composed of only ten features and trains on
 
 <font size=4> 
   
-3.Download python 2.7 and the following python packages.
+3. Download python 2.7 and the following python packages.
 
 </font>
 
@@ -62,7 +62,7 @@ PremPS uses a novel scoring function composed of only ten features and trains on
 
 <font size=4>
 
-4.Download R 3.4.0 or newer and the following R packages.
+4. Download R 3.4.0 or newer and the following R packages.
 
 </font>
 
