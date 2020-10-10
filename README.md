@@ -6,14 +6,17 @@ PremPS uses a novel scoring function composed of only ten features and trains on
   
 </font>
 
+## Scoring mutations with PremPS
+<font size=4> 
+
+We recommend that most users who just want to obtain the predictions of changes of unfolding Gibbs free energy upon mutations use PremPS on the [PremPS website](https://lilab.jysw.suda.edu.cn/research/PremPS/).
+
+</font>
+
 ## Source code releases
 <font size=4> 
   
-**PremPS.py:** code for running PremPS software (need to change the working directory).
-
-**inputfiles/:** parameter files that will be called in PremPS.py.
-
-**example/:** an example for running PremPS.py, which jobid is 2020100417132606935696574. When you need to submit a job, you need to make a directory with .input (the format should be consistent with the jobid.input) and .pdb in it.
+You can download releases on github.
 
 ## Datasets releases
 

@@ -1,2 +1,0 @@
-PDBfile	Chains	MutChain	Mutation_PDB	Result_Id	isPI	PDBid	NewChains	Mutation_cleaned	hydrophobic_wt_2d	charged_wt_2d
-PREMPS.pdb1	X_1	X_1	P10A	118553	0	PREMPS	A	PA1A	5	3

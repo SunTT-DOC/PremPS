@@ -1,0 +1,2 @@
+PDB_ID	Mutation_PDB	dhydroscales_omh
+PREMPS	PA1A	0.09
