@@ -95,8 +95,8 @@ III. RUNNING PremPS
 
 2. Download and unpack the distribution:
 
-	`$ wget https://github.com/minghuilab/PremPS/archive/PremPS-1.0.0.tar.gz`
-	`$ tar -zxvf PremPS-1.0.0.tar.gz`
+	`$ wget https://github.com/minghuilab/PremPS/archive/v1.0.0.tar.gz`
+	`$ tar -zxvf v1.0.0.tar.gz`
 
 3. Change to the source directory:
 	`$ cd PremPS-1.0.0`
