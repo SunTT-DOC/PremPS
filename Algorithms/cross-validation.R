@@ -1,9 +1,10 @@
-setwd("C:/Users/ChenDouDou/Documents/GitHub/PremPS/Datasets/S5296/")
 library(randomForest)
 library(stringr)
-rm(list=ls())
 
-f<-read.csv(file='S5296.txt',header = TRUE, sep = '\t')
+rm(list=ls())
+setwd(YourWorkDirectory)
+
+f <- read.csv(file='Datasets/S5296/S5296.txt', header = TRUE, sep = '\t')
 rownames(f) <- paste(f$PDB.Id,f$Mutated.Chain,f$Mutation_PDB,f$Label,sep = '_')
 label <- 'DDGexp~PSSM+DCS+DOMH+P_L+P_FWY+P_RKDE+N_hydro+N_charg+SASA_pro+SASA_sol'
 
