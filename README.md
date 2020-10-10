@@ -21,11 +21,8 @@ You can download [releases](https://github.com/minghuilab/PremPS/releases) on gi
 </font>
 
 ## Installation
-<font size=14>
 
-I. PREREQUISITES
-
-</font> 
+### I. PREREQUISITES
 
 <font size=4>
  
@@ -67,11 +64,7 @@ PremPS requires the following software and packages.
 
 </font>
 
-<font size=14>
-
-II. INSTALLATION INSTRUCTIONS
-
-</font> 
+### II. INSTALLATION INSTRUCTIONS
 
 <font size=4>
 
@@ -97,11 +90,7 @@ II. INSTALLATION INSTRUCTIONS
 
 </font>
 
-<font size=14>
-
-III. RUNNING PremPS
-
-</font> 
+### III. RUNNING PremPS
 
 <font size=4>
 
