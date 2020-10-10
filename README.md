@@ -21,7 +21,7 @@ You can download [releases](https://github.com/minghuilab/PremPS/releases) on gi
 </font>
 
 ## Installation
-<font size=8>
+<font size=14>
 
 I. PREREQUISITES
 
@@ -67,7 +67,7 @@ PremPS requires the following software and packages.
 
 </font>
 
-<font size=8>
+<font size=14>
 
 II. INSTALLATION INSTRUCTIONS
 
@@ -80,6 +80,7 @@ II. INSTALLATION INSTRUCTIONS
 2. Download and unpack the distribution:
 
 	`$ wget https://github.com/minghuilab/PremPS/archive/PremPS-1.0.0.tar.gz`
+
 	`$ tar -zxvf PremPS-1.0.0.tar.gz`
 
 3. Change to the source directory:
@@ -87,7 +88,7 @@ II. INSTALLATION INSTRUCTIONS
 
 </font>
 
-<font size=8>
+<font size=14>
 
 III. RUNNING PremPS
 
