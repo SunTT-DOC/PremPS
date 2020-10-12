@@ -8,7 +8,7 @@ Eight widely used datasets were used to estimate the performance of PremPS and c
 
 </font> 
 
-## Terms in the files
+## Terms in the text files
 
 <font size=4>
 
@@ -28,14 +28,14 @@ Location: Location of the mutated site on the protein.
 
 Label(Ssym.txt, S250.txt, S2000.txt): 'forward' indicates the forward mutations from the wild type to mutant; 'reverse' indicates the reverse mutations.
 
-Label(S350.txt): 1 indicates the mutation in the dataset of S309; otherwise not.
+Label(S350.txt): '1' indicates the mutation in the dataset of S309; otherwise not.
 
 PremPS: Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
 
-PrmePS_M: Retrained the model after removing the overlapped mutations including their corresponding reverse mutations (named as PremPS<sup>M</sup>), and then applied to each test set.
+PrmePS_M: Predicted changes of unfolding free energy upon mutations by retraining the model after removing the overlapped mutations including their corresponding reverse mutations (named as PremPS<sup>M</sup>).
 
-PrmePS_P: Retrained the model after removing all mutations in the “similar proteins” (named as PremPS<sup>P</sup>), and then applied to each test set.
+PrmePS_P: Predicted changes of unfolding free energy upon mutations by retraining the model after removing all mutations in the “similar proteins” (named as PremPS<sup>P</sup>).
 
-20fold(S1925.txt): Retrained and then preforming 20-fold cross-validation on S1925.
+Twenty-fold(S1925.txt): Predicted changes of unfolding free energy upon mutations by retraining and then preforming 20-fold cross-validation on S1925.
 
 <font>
