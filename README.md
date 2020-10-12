@@ -71,9 +71,18 @@ PremPS requires the following software and packages.
 
 <font size=4>
 
-7. R packages: randomForest
+7. R packages: randomForest, e1071, xgboost, stringr
 
 </font>
+
+<font size=4>
+
+	$ install.packages('randomForest')
+	$ install.packages('e1071')
+	$ install.packages('xgboost')
+	$ install.packages('stringr')
+
+</font> 
 
 #### II. INSTALLATION INSTRUCTIONS
 
