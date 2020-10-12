@@ -9,6 +9,3 @@ set.seed(100)
 model.rf <- randomForest(as.formula(label), data = f,keep.inbag = TRUE)
 f$PremPS <- model.rf$predicted
 cor(f$DDGexp,f$PremPS)
-
-
-
