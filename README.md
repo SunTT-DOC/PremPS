@@ -65,7 +65,6 @@ PremPS requires the following software and packages.
 <font size=4>
 
 	$ conda install -c conda-forge pandas
-
 	$ conda install -c r rpy2
 
 </font> 
@@ -89,7 +88,6 @@ PremPS requires the following software and packages.
 <font size=4>
 
 	$ wget https://github.com/minghuilab/PremPS/archive/v1.0.0.tar.gz
-
 	$ tar -zxvf v1.0.0.tar.gz
 
 </font> 
