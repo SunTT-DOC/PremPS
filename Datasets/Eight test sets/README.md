@@ -32,10 +32,10 @@ Label(S350.txt): '1' indicates the mutation in the dataset of S309; otherwise no
 
 PremPS: Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
 
-PrmePS_M: Predicted changes of unfolding free energy upon mutations by retraining the model after removing the overlapped mutations including their corresponding reverse mutations (named as PremPS<sup>M</sup>).
+PrmePS_M: Predicted changes of unfolding free energy upon mutations by retraining the model after removing the overlapped mutations including their corresponding reverse mutations (in kcal/mol).
 
-PrmePS_P: Predicted changes of unfolding free energy upon mutations by retraining the model after removing all mutations in the “similar proteins” (named as PremPS<sup>P</sup>).
+PrmePS_P: Predicted changes of unfolding free energy upon mutations by retraining the model after removing all mutations in the “similar proteins” (in kcal/mol).
 
-Twenty-fold(S1925.txt): Predicted changes of unfolding free energy upon mutations by retraining and then preforming 20-fold cross-validation on S1925.
+Twenty-fold(S1925.txt): Predicted changes of unfolding free energy upon mutations by retraining and then preforming 20-fold cross-validation on S1925 (in kcal/mol).
 
 <font>

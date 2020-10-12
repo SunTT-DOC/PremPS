@@ -24,11 +24,13 @@ UniProt: The UniProt ID of the protein.
 
 Mutation_UNP: The mutation corresponding to the residue numbering found in the protein sequence.
 
-Label: 'forward' indicates the forward mutations from the wild type to mutant; 'reverse' indicates the reverse mutations.
+Label: 'forward' indicates the forward mutations from the wild type to mutant in the dataset of S2648; 'reverse' indicates the reverse mutations in the dataset of S2648.R.
 
 DDGexp: Experimental changes of unfolding Gibbs free energy upon mutations (in kcal/mol).
 
 Location: Location of the mutated site on the protein.
+
+similar proteins: The “similar proteins” of each protein in S5296; MMseqs2 software was used to find the “similar proteins”; the sequence identity is set to 25% and the alignment covers at least 50% of query and target sequences.
 
 **The rest of columns show the value of each feature for every mutation!!! The features are described below:**
 

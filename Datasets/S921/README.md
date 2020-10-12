@@ -4,11 +4,11 @@
 
 <font size=4>
 
-**S921.txt** is the independent test set for parameterizing PremPS model and it contains 921 single mutations from 54 proteins.
+**S921.txt** is the independent test set used to comparing PremPS with four other methods of INPS3D, PoPMuSiC, FoldX and mCSM.
 
-**RS824.txt** is the subset of S921 that can be mapped to multiple protein structures.
+**RS824.txt** is the redundant dataset of S824. S824 is the subset of S921 that can be mapped to multiple protein structures.
 
-**MS824.txt** is the results of S824 using homology modeled structures.
+**MS824.txt** is the 3D modelling dataset of S824.
 
 **Selected Structures.rar** is the crystal structures in S921.
 
@@ -38,7 +38,7 @@ Location: Location of the mutated site on the protein.
 
 PremPS: Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
 
-Resolution: Resolution of the crystal structure.
+Resolution: Resolution of the crystal structure (in Å).
 
 METHOD: Experimental method of the crystal structure.
 
@@ -48,8 +48,8 @@ weight: Total structure weight of the crystal structure.
 
 Sequence Identity: Sequence identity between target sequences and templates.
 
-RMSD: The root mean square deviation of the coordinates of all Cα atoms between crystal and modeled structures.
+RMSD: The root mean square deviation of the coordinates of all Cα atoms between crystal and modeled structures (in Å).
 
-**The rest of columns are predicted changes of unfolding free energy upon mutations by different methods (in kcal/mol).**
+**The rest of columns are predicted changes of unfolding free energy upon mutations by four other methods (in kcal/mol).**
 
 <font>
