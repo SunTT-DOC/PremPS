@@ -4,7 +4,7 @@ rm(list=ls())
 setwd(YourWorkDirectory)
 
 f <- read.csv(file='Datasets/S5296/S5296.txt', header = TRUE, sep = '\t')
-label <- 'DDGexp~PSSM+DCS+DOMH+P_L+P_FWY+P_RKDE+N_hydro+N_charg+SASA_pro+SASA_sol'
+label <- 'DDGexp~PSSM+DCS+DOMH+P_L+P_FWY+P_RKDE+N_Hydro+N_Charg+SASA_pro+SASA_sol'
 set.seed(100)
 feature_list <- unlist(strsplit(unlist(strsplit(label,split = '~'))[2],split = '[+]'))
 data <- f[,which(names(f) %in% feature_list)]
