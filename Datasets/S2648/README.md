@@ -18,7 +18,7 @@
 
 </font> 
 
-## Terms in the files
+## Terms in the text files
 
 <font size=4>
 
