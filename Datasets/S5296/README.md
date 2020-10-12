@@ -6,7 +6,7 @@
 
 **S5296.txt** is the training set for parameterizing PremPS model and it contains 5,296 single mutations.
 
-**Mutant structures produced by FoldX.tar.gz** is the reverse structures in S2648.R.
+**Mutant structures produced by FoldX.tar.gz** is the structures of reverse mutations in S2648.R.
 
 </font> 
 
