@@ -15,5 +15,3 @@ xgb.best <- list(max_depth = 10,eta = 0.01,gamma = 0,colsample_bytree = 0.8,min_
 xgb_tune <- xgb.train(params=xgb.best, data=train_data, nrounds=1000)
 f$PremPS <- predict(xgb_tune, train_data)
 cor(f$DDGexp,f$PremPS)
-
-
