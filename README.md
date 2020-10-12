@@ -48,7 +48,7 @@ PremPS requires the following software and packages.
 
 4. FoldX
 
-   This is available at the FOLDX website.
+   This is available at the FoldX website.
 
    http://foldxsuite.crg.eu/
 
@@ -58,7 +58,19 @@ PremPS requires the following software and packages.
 
    https://www.ks.uiuc.edu/Research/vmd/
 
-6. Python packages: pandas, collections, rpy2
+6. Python packages: pandas, rpy2
+
+</font>
+
+<font size=4>
+
+	$ conda install -c conda-forge pandas
+
+	$ conda install -c r rpy2
+
+</font> 
+
+<font size=4>
 
 7. R packages: randomForest
 
@@ -72,6 +84,8 @@ PremPS requires the following software and packages.
 
 2. Download and unpack the distribution:
 
+</font>
+
 <font size=4>
 
 	$ wget https://github.com/minghuilab/PremPS/archive/v1.0.0.tar.gz
@@ -80,7 +94,11 @@ PremPS requires the following software and packages.
 
 </font> 
 
+<font size=4>
+
 3. Change to the source directory:
+
+</font>
 
 <font size=4>
 
@@ -88,7 +106,23 @@ PremPS requires the following software and packages.
 
 </font> 
 
+<font size=4>
+
+4. Change the path parameter in PremPS.py (line 15-21):
+
 </font>
+
+<font size=4>
+
+	$ workdir = YourWorkDirectory
+	$ pathpara = workdir + "inputfiles"
+	$ pathvmd = workdir+'vmd'
+	$ pathmkdssp = workdir+'mkdssp'
+	$ pathpsiblast = workdir+'blast/psiblast'
+	$ pathblastdb = workdir+'blastdb/nr'
+	$ pathrscript = workdir+'Rscript'
+
+</font> 
 
 #### III. RUNNING PremPS
 
@@ -99,7 +133,17 @@ PremPS requires the following software and packages.
 </font> 
 
 ## Platform
-PremPS is only intended to run on linux operating systems and on a compute server.
+
+<font size=4>
+
+PremPS is only intended to run on *linux* operating systems and on a compute server.
+
+</font>
 
 ## Issues
+
+<font size=4>
+
 You will need to have python>=2.7 and R>=3.4.0.
+
+</font>
