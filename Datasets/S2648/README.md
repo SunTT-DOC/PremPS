@@ -44,15 +44,15 @@ PremPS(RS2297.txt, MS2297.txt): Predicted changes of unfolding free energy upon 
 
 PremPS(CV4)(RS2297.txt, MS2297.txt): Predicted changes of unfolding free energy upon mutations by PremPS performing "leave-one-protein-out" cross-validation (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
 
-Resolution: Resolution of the crystal structure (in Å).
+Resolution: Resolution of the crystal structures (in Å).
 
-METHOD: Experimental method of the crystal structure.
+Method: Experimental method of the crystal structures.
 
-Aggregate state: The aggregate state of the crystal structure.
+Aggregate state: The aggregate state of the crystal structures.
 
-weight: Total structure weight of the crystal structure.
+Weight: Total structure weight of the crystal structures.
 
-Sequence Identity: Sequence identity between target sequences and templates.
+Sequence identity: Sequence identity between target sequences and templates.
 
 RMSD: The root mean square deviation of the coordinates of all Cα atoms between crystal and modeled structures (in Å).
 
