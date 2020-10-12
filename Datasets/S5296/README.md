@@ -30,7 +30,7 @@ DDGexp: Experimental changes of unfolding Gibbs free energy upon mutations (in k
 
 Location: Location of the mutated site on the protein.
 
-similar proteins: The “similar proteins” of each protein in S5296; MMseqs2 software was used to find the “similar proteins”; the sequence identity is set to 25% and the alignment covers at least 50% of query and target sequences.
+similar proteins: The “similar proteins” of each protein in S5296. MMseqs2 software was used to find the “similar proteins”; the sequence identity is set to 25% and the alignment covers at least 50% of query and target sequences.
 
 **The rest of columns show the value of each feature for every mutation!!! The features are described below:**
 
