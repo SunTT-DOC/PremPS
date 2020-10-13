@@ -2,14 +2,14 @@
 ## About
 <font size=4> 
   
-PremPS uses a novel scoring function composed of only ten features and trains on a balanced dataset including five thousand mutations, half of which belong to destabilizing mutations and the remaining half are stabilizing mutations. PremPS has been comprehensively validated to perform significantly better than other methods especially in predicting the effects of stabilizing mutations, and shows a very low prediction bias toward anti-symmetric property. 
+PremPS evaluates the effects of single mutations on protein stability by calculating the changes in unfolding Gibbs free energy. It can be applied to a large number of tasks, including finding functionally important variants, understanding their molecular mechanisms and protein design. 3D structure of a protein is required for this method.
   
 </font>
 
 ## Scoring mutations with PremPS
 <font size=4> 
 
-We recommend that most users who just want to obtain the predictions of changes of unfolding Gibbs free energy upon mutations use PremPS on the [PremPS website](https://lilab.jysw.suda.edu.cn/research/PremPS/).
+We recommend that most users who just want to obtain PremPS predictions use [PremPS website](https://lilab.jysw.suda.edu.cn/research/PremPS/) to obtain scores.
 
 </font>
 
@@ -58,7 +58,7 @@ PremPS requires the following software and packages.
 
    https://www.ks.uiuc.edu/Research/vmd/
 
-6. Python packages: pandas, rpy2
+6. Python packages: pandas and rpy2
 
 </font>
 
