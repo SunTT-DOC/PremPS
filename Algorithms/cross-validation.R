@@ -16,12 +16,17 @@ cor(f$DDGexp,f$PremPS)
 ## CV1: randomly chose 80% of mutations from the S5296 set to train the model 
 ##      and used the remaining mutations for blind testing; 
 ##      the procedures were repeated 100 times.
+f$Label_select <- paste(f$PDB.Id,f$Mutated.Chain,f$Mutation_PDB,sep = '_')
+f.forward <- f[f$Label=='forward',]
+f.reverse <- f[f$Label=='reverse',]
 R_CV1 <- c()
 for (i in 1:100) {
-  index <- sample(nrow(f),floor(nrow(f)*0.8))
-  train.f <- f[index,]
-  test.f <- f[-index,]
-  
+  index <- sample(nrow(f.forward),floor(nrow(f.forward)*0.8))
+  train.forward <- f.forward[index,]
+  test.forward <- f.forward[-index,]
+  train.f <- f[f$Label_select %in% train.forward$Label_select,]
+  test.f <- f[f$Label_select %in% test.forward$Label_select,]
+
   set.seed(i)
   model.rf <- randomForest(as.formula(label), data = train.f)
   test.f$PremPS <- predict(model.rf,test.f)
@@ -33,12 +38,17 @@ mean(R_CV1)
 ## CV2: randomly chose 50% of mutations from the S5296 set to train the model 
 ##      and used the remaining mutations for blind testing; 
 ##      the procedures were repeated 100 times.
+f$Label_select <- paste(f$PDB.Id,f$Mutated.Chain,f$Mutation_PDB,sep = '_')
+f.forward <- f[f$Label=='forward',]
+f.reverse <- f[f$Label=='reverse',]
 R_CV2 <- c()
 for (i in 1:100) {
-  index <- sample(nrow(f),floor(nrow(f)*0.5))
-  train.f <- f[index,]
-  test.f <- f[-index,]
-  
+  index <- sample(nrow(f.forward),floor(nrow(f.forward)*0.5))
+  train.forward <- f.forward[index,]
+  test.forward <- f.forward[-index,]
+  train.f <- f[f$Label_select %in% train.forward$Label_select,]
+  test.f <- f[f$Label_select %in% test.forward$Label_select,]
+
   set.seed(i)
   model.rf <- randomForest(as.formula(label), data = train.f)
   test.f$PremPS <- predict(model.rf,test.f)
