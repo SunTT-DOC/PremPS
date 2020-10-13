@@ -61,6 +61,7 @@ PremPS requires the following software and packages.
 6. Python packages: pandas and rpy2
 
 </font>
+To install these packages you can use the following command:
 
 <font size=4>
 
