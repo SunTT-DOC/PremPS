@@ -133,6 +133,8 @@ PremPS requires the following software and packages.
  
    The FoldX software needs to be installed in the working directory 
 
+</font>
+
 #### III. RUNNING PremPS
 
 <font size=4>
