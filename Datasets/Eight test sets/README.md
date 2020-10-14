@@ -32,9 +32,9 @@ Label (in S350.txt): '1' indicates that the mutations for which the values in ch
 
 PremPS: Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
 
-PrmePS_M: The PremPS model was retrained after removing the overlapped mutations and their corresponding reverse mutations with each test set from the training dataset.
+PremPS_M: The PremPS model was retrained after removing the overlapped mutations and their corresponding reverse mutations with each test set from the training dataset.
 
-PrmePS_P: The PremPS model was retrained after removing all mutations in the “similar proteins” from the training dataset. 
+PremPS_P: The PremPS model was retrained after removing all mutations in the “similar proteins” from the training dataset. 
 
 Twenty-fold (in S1925.txt): PremPS score when the model was retrained on S1925 and then preforming 20-fold cross-validation (in kcal/mol).
 
