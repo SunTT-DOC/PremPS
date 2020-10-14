@@ -4,7 +4,7 @@
 
 <font size=4>
 
-The eight datasets that were taken from the previous studies were used to assess the predictive performance of PremPS and compare with other computational methods (see more details in the paper). 
+The eight datasets that were taken from the previous studies are used to assess the predictive performance of PremPS and compare with other computational methods (see more details in the paper). 
 
 </font> 
 
