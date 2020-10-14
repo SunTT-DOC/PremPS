@@ -22,7 +22,7 @@
 
 <font size=4>
 
-PDB Id: The PDB entry of protein.
+PDB Id: The PDB entry of protein in S2648.txt and RS2297.txt files, while in MS2297.txt it is composed of PDB ID and chain of target sequence and PDB ID and chain of template.
 
 Mutated Chain: Protein chain with mutation.
 
