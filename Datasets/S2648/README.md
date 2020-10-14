@@ -22,7 +22,7 @@
 
 <font size=4>
 
-PDB Id: The PDB entry of protein.
+PDB Id: The PDB entry of protein in S2648.txt and RS2297.txt files, while in MS2297.txt it is composed of PDB ID and chain of target sequence and PDB ID and chain of template.
 
 Mutated Chain: Protein chain with mutation.
 
@@ -42,7 +42,7 @@ PremPS(CV4): "leave-one-protein-out" cross-validation results (in kcal/mol).
 
 Resolution: Resolution of structures (in Å).
 
-Method: Experimental methods for resolving protein structures including X-ray, NMR or Cryo-EM.
+Method: Experimental methods for resolving protein structures including X-ray ("x-ray"), NMR ("nmr") or Cryo-EM ("em").
 
 Aggregate state: Multimeric state of a protein structure including monomer ("mo"), homomer ("ho") and heteromer ("he").
 
