@@ -129,8 +129,10 @@ PremPS requires the following software and packages.
 	pathblastdb = path for blastdb  # /usr/local/bin/blastdb/nr
 	pathrscript = path for running Rscript  # /usr/local/bin/Rscript
 
-</font> 
+</font>
+ 
    The FoldX software needs to be installed in the working directory 
+
 #### III. RUNNING PremPS
 
 <font size=4>
