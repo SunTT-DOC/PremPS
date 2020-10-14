@@ -20,6 +20,6 @@ When running PremPS, the working folder (such as 2020100417132606935696574/), th
 - Result_Id: The custom number of each mutation defined by the researcher.
 - isPI: If you need mutant structure for each mutation, set to '1'; otherwise '0'.
 
-Note: The column names and their order cannot be changed; the columns are separated by tabs.
+Note: The column names and their order cannot be changed and the columns are separated by tabs.
 
 </font>
