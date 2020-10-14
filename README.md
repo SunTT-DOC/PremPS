@@ -60,8 +60,8 @@ PremPS requires the following software and packages.
 
 6. Python packages: pandas and rpy2
 
+   To install these packages you can use the following command:
 </font>
-To install these packages you can use the following command:
 
 <font size=4>
 
@@ -72,7 +72,7 @@ To install these packages you can use the following command:
 
 <font size=4>
 
-7. R packages: randomForest, e1071, xgboost, stringr
+7. R packages: randomForest, e1071, xgboost and stringr
 
 </font>
 
@@ -89,7 +89,7 @@ To install these packages you can use the following command:
 
 <font size=4>
 
-1. Install prerequisites described above.
+1. Download and/or install prerequisites described above.
 
 2. Download and unpack the distribution:
 
@@ -116,7 +116,7 @@ To install these packages you can use the following command:
 
 <font size=4>
 
-4. Change the path parameter in PremPS.py (line 15-21):
+4. Change the path parameters in PremPS.py (line 15-21):
 
 </font>
 
@@ -144,7 +144,7 @@ To install these packages you can use the following command:
 
 <font size=4>
 
-PremPS is only intended to run on *linux* operating systems and on a compute server.
+PremPS is only intended to run on *linux* operating systems.
 
 </font>
 
@@ -152,6 +152,6 @@ PremPS is only intended to run on *linux* operating systems and on a compute ser
 
 <font size=4>
 
-You will need to have python>=2.7 and R>=3.4.0.
+You will need to have Python 2.7 (or higher) and R 3.4.0 (or higher) installed.
 
 </font>
