@@ -4,17 +4,17 @@
 
 <font size=4>
 
-**S2648.txt** is forward mutations in S5296, and it includes 2,648 non-redundant unique single-point mutations from 131 globular proteins.
+**S2648.txt**: forward mutations in S5296, and it includes 2,648 non-redundant unique single-point mutations from 131 globular proteins using selected single one experimental structure for a protein.
 
-**RS2297.txt** is the redundant dataset of S2297. S2297 is the subset of S5296 that can be mapped to multiple protein structures.
+**RS2297.txt**: the subset of S2648 using all the other mapped redundant experimental structures.
 
-**MS2297.txt** is the 3D modelling dataset of S2297.
+**MS2297.txt**: the subset of S2648 using modeled structures built by Modeller software.
 
-**Selected Structures.rar** is the crystal structures in S2648.
+**Selected Structures.rar** contains the experimental structures used in S2648.
 
-**Redundant Structures.rar** is the crystal structures in RS2297.
+**Redundant Structures.rar** contains the experimental structures used in RS2297.
 
-**Modeled Structures.rar** is the modeled structures in MS2297.
+**Modeled Structures.rar** contains the modeled structures used in MS2297.
 
 </font> 
 
