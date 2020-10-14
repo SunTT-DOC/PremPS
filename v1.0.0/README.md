@@ -2,7 +2,7 @@
 ## About
 <font size=4> 
   
-When running PremPS, the working folder (such as 2020100417132606935696574/), the source program (PremPS.py), the parameter folder (inputfiles/) and the FoldX software need to be in the same working directory (YourWorkDirectory). 
+When running PremPS, the working folder (such as 2020100417132606935696574/), the source program (PremPS.py), the parameter folder (inputfiles/) and the FoldX software need to be in the same working directory (Your work directory). 
   
 </font>
 
