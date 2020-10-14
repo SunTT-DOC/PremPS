@@ -74,8 +74,6 @@ PremPS requires the following software and packages.
 
 7. R packages: randomForest, e1071, xgboost and stringr
 
-   To install these packages you can use the following command:
-
 </font>
 
 <font size=4>
