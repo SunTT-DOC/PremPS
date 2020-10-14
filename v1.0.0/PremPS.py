@@ -12,13 +12,8 @@ r = robjects.r
 r('''library(randomForest)''')
 
 # set up path.
-workdir = YourWorkDirectory
+workdir = Your work directory
 pathpara = workdir + "inputfiles"
-pathvmd = workdir+'vmd'
-pathmkdssp = workdir+'mkdssp'
-pathpsiblast = workdir+'blast/psiblast'
-pathblastdb = workdir+'blastdb/nr'
-pathrscript = workdir+'Rscript'
 
 # set up input and output file name for each job
 jobid = ''
