@@ -22,38 +22,34 @@
 
 <font size=4>
 
-PDB Id: The PDB entry of the protein.
+PDB Id: The PDB entry of protein.
 
 Mutated Chain: Protein chain with mutation.
 
-Mutation_PDB: The mutation corresponding to the residue numbering found in the protein databank. The first character is one letter amino acid code for the wild-type residue, the second to penultimate characters indicate residue number, and the final character indicates the mutant amino acid.
+Mutation_PDB: The mutation corresponding to the residue numbering found in the Protein Data Bank. The first character is one letter amino acid code for the wild-type residue, the second to penultimate characters indicate residue number, and the final character indicates the mutant amino acid.
 
-UniProt: The UniProt ID of the protein.
+UniProt: The UniProt ID of protein.
 
 Mutation_UNP: The mutation corresponding to the residue numbering found in the protein sequence.
 
 DDGexp: Experimental changes of unfolding Gibbs free energy upon mutations (in kcal/mol).
 
-Location: Location of the mutated site on the protein.
+Location: Location of the mutated site in the protein structure (core or surface).
 
-PremPS(S2648.txt): Predicted changes of unfolding free energy upon mutations by retraining the model using S2648 (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
+PremPS: Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
 
-PremPS(CV4)(S2648.txt): Predicted changes of unfolding free energy upon mutations by retraining and performing "leave-one-protein-out" cross-validation using S2648 (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
+PremPS(CV4): "leave-one-protein-out" cross-validation results (in kcal/mol). 
 
-PremPS(RS2297.txt, MS2297.txt): Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
+Resolution: Resolution of structures (in Å).
 
-PremPS(CV4)(RS2297.txt, MS2297.txt): Predicted changes of unfolding free energy upon mutations by PremPS performing "leave-one-protein-out" cross-validation (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
+Method: Experimental methods for resolving protein structures including X-ray, NMR or Cryo-EM.
 
-Resolution: Resolution of the crystal structures (in Å).
+Aggregate state: Multimeric state of a protein structure including monomer ("mo"), homomer ("ho") and heteromer ("he").
 
-Method: Experimental method of the crystal structures.
-
-Aggregate state: The aggregate state of the crystal structures.
-
-Weight: Total structure weight of the crystal structures.
+Weight: The molecular weight of a protein structure.
 
 Sequence identity: Sequence identity between target sequences and templates.
 
-RMSD: The root mean square deviation of the coordinates of all Cα atoms between crystal and modeled structures (in Å).
+RMSD: The root-mean-square deviation between coordinates of all Cα atoms of experimental and modeled structures (in Å).
 
 <font>
