@@ -32,7 +32,7 @@ Location: Location of the mutated site in the protein structure (core or surface
 
 similar proteins: The “similar proteins” of each protein. MMseqs2 software was used to find the “similar proteins”; the sequence identity is set to 25% and the alignment covers at least 50% of query and target sequences.
 
-**The rest of columns are the features described below:**
+**The rest of columns are the features described below （see more details in the paper）:**
 
 DCS: the change of conservation after mutation calculated by PROVEAN method. 
 
