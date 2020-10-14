@@ -50,6 +50,6 @@ Sequence identity: Sequence identity between target sequences and templates.
 
 RMSD: The root-mean-square deviation between coordinates of all Cα atoms of experimental and modeled structures (in Å).
 
-**The rest of columns are predicted changes of unfolding free energy upon mutations by four other methods (in kcal/mol).**
+**The rest of columns are stability changes predicted by methods of INPS3D, INPS, PoPMuSiC, mCSM	and FoldX, respectively (in kcal/mol).**
 
 <font>
