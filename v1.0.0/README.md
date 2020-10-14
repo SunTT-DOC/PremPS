@@ -1,0 +1,26 @@
+# PremPS-1.0.0
+## About
+<font size=4> 
+  
+When running PremPS, the working folder (such as 2020100417132606935696574/), the source program (PremPS.py), the parameter folder (inputfiles/) and the FoldX software need to be in the same working directory (YourWorkDirectory). 
+  
+</font>
+
+## Terms in the input file (2020100417132606935696574.input)
+<font size=4> 
+
+Note: The column names and their order cannot be changed; the columns are separated by tabs; 
+
+PDBfile: Coordinate file of a protein structure.
+
+Chains: The selected chains that will be taken into account during the calculation.
+
+MutChain: The protein chain where the mutation occurs.
+
+Mutation_PDB: Mutation, such as P10A, P is a wild-type amino acid, A is a mutant amino acid, and 10 is the position of the amino acid in MutChain.
+
+Result_Id: The custom number of each mutation defined by the researcher.
+
+isPI: If you need mutant structure for each mutation, set to '1'; otherwise '0'.
+
+</font>
