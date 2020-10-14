@@ -116,19 +116,18 @@ PremPS requires the following software and packages.
 
 <font size=4>
 
-4. Change the path parameters in PremPS.py (line 15-21):
+4. Change the path parameters in PremPS.py (line 15-20):
 
 </font>
 
 <font size=4>
 
-	$ workdir = YourWorkDirectory
-	$ pathpara = workdir + "inputfiles"
-	$ pathvmd = workdir+'vmd'
-	$ pathmkdssp = workdir+'mkdssp'
-	$ pathpsiblast = workdir+'blast/psiblast'
-	$ pathblastdb = workdir+'blastdb/nr'
-	$ pathrscript = workdir+'Rscript'
+	workdir = Your work directory
+	pathvmd = path for running VMD software  # /usr/local/bin/vmd
+	pathmkdssp = path for running DSSP software  # /usr/local/bin/mkdssp
+	pathpsiblast = path for running PSI-BLAST software  # /usr/local/bin/blast/psiblast
+	pathblastdb = path for blastdb  # /usr/local/bin/blastdb/nr
+	pathrscript = path for running Rscript  # /usr/local/bin/Rscript
 
 </font> 
 
