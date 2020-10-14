@@ -121,18 +121,16 @@ PremPS requires the following software and packages.
 </font>
 
 <font size=4>
-
 	workdir = Your working directory
 	pathvmd = path for running VMD software  # /usr/local/bin/vmd
 	pathmkdssp = path for running DSSP software  # /usr/local/bin/mkdssp
 	pathpsiblast = path for running PSI-BLAST software  # /usr/local/bin/blast/psiblast
 	pathblastdb = path for blastdb  # /usr/local/bin/blastdb/nr
 	pathrscript = path for running Rscript  # /usr/local/bin/Rscript
-
 </font>
  
 <font size=1>
-&nbsp; &nbsp; The FoldX software needs to be installed in the working directory 
+&nbsp; &nbsp; The FoldX software needs to be installed in the working directory
 </font>
 
 #### III. RUNNING PremPS
