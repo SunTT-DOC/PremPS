@@ -44,7 +44,7 @@ Resolution: Resolution of structures (in Å).
 
 Method: Experimental methods for resolving protein structures including X-ray, NMR or Cryo-EM.
 
-Aggregate state: Multimeric state of a protein structure.
+Aggregate state: Multimeric state of a protein structure including monomer ("mo"), homomer ("ho") and heteromer ("he").
 
 Weight: The molecular weight of a protein structure.
 
