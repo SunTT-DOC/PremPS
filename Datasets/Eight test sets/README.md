@@ -4,7 +4,7 @@
 
 <font size=4>
 
-Eight widely used datasets were used to estimate the performance of PremPS and compare with other methods. Among them, three datasets of S<sup>sym</sup>, S250 and S2000 include pairs of forward and reverse mutations which can further be used to check the issue of bias of anti-symmetric property (∆∆G<sub>F</sub> +∆∆G<sub>R</sub> =0).
+The eight datasets that were taken from the previous studies were used to assess the predictive performance of PremPS and compare with other computational methods (see more details in the paper). 
 
 </font> 
 
@@ -12,30 +12,30 @@ Eight widely used datasets were used to estimate the performance of PremPS and c
 
 <font size=4>
 
-PDB Id: The PDB entry of the protein.
+PDB Id: The PDB entry of protein.
 
 Mutated Chain: Protein chain with mutation.
 
-Mutation_PDB: The mutation corresponding to the residue numbering found in the protein databank. The first character is one letter amino acid code for the wild-type residue, the second to penultimate characters indicate residue number, and the final character indicates the mutant amino acid.
+Mutation_PDB: The mutation corresponding to the residue numbering found in the Protein Data Bank. The first character is one letter amino acid code for the wild-type residue, the second to penultimate characters indicate residue number, and the final character indicates the mutant amino acid.
 
-UniProt: The UniProt ID of the protein.
+UniProt: The UniProt ID of protein.
 
 Mutation_UNP: The mutation corresponding to the residue numbering found in the protein sequence.
 
 DDGexp: Experimental changes of unfolding Gibbs free energy upon mutations (in kcal/mol).
 
-Location: Location of the mutated site on the protein.
+Location: Location of the mutated site in the protein structure (core or surface).
 
-Label(Ssym.txt, S250.txt, S2000.txt): 'forward' indicates the forward mutations from the wild type to mutant; 'reverse' indicates the reverse mutations.
+Label (in Ssym.txt, S250.txt and S2000.txt): 'forward' indicates the forward mutations; 'reverse' indicates the reverse mutations.
 
-Label(S350.txt): '1' indicates the mutation in the dataset of S309; otherwise not.
+Label (in S350.txt): '1' indicates that the mutations for which the values in change of stability are available for all methods.
 
 PremPS: Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
 
-PrmePS_M: Predicted changes of unfolding free energy upon mutations by retraining the model after removing the overlapped mutations including their corresponding reverse mutations (in kcal/mol).
+PrmePS_M: The PremPS model was retrained after removing the overlapped mutations and their corresponding reverse mutations with each test set from the training dataset.
 
-PrmePS_P: Predicted changes of unfolding free energy upon mutations by retraining the model after removing all mutations in the “similar proteins” (in kcal/mol).
+PrmePS_P: The PremPS model was retrained after removing all mutations in the “similar proteins” from the training dataset. 
 
-Twenty-fold(S1925.txt): Predicted changes of unfolding free energy upon mutations by retraining and then preforming 20-fold cross-validation on S1925 (in kcal/mol).
+Twenty-fold (in S1925.txt): PremPS score when the model was retrained on S1925 and then preforming 20-fold cross-validation (in kcal/mol).
 
 <font>
