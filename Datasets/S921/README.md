@@ -4,17 +4,17 @@
 
 <font size=4>
 
-**S921.txt** is the independent test set used to comparing PremPS with four other methods of INPS3D, PoPMuSiC, FoldX and mCSM.
+**S921.txt**: the combined independent test set contains 921 single mutations from 54 proteins.
 
-**RS824.txt** is the redundant dataset of S824. S824 is the subset of S921 that can be mapped to multiple protein structures.
+**RS824.txt**: the subset of S921 using all the other mapped redundant experimental structures.
 
-**MS824.txt** is the 3D modelling dataset of S824.
+**MS824.txt**: the subset of S921 using modeled structures built by Modeller software.
 
-**Selected Structures.rar** is the crystal structures in S921.
+**Selected Structures.rar** contains the experimental structures used in S921.
 
-**Redundant Structures.rar** is the crystal structures in RS824.
+**Redundant Structures.rar** contains the experimental structures used in RS824.
 
-**Modeled Structures.rar** is the modeled structures in MS824.
+**Modeled Structures.rar** contains the modeled structures used in MS824.
 
 </font> 
 
@@ -22,33 +22,33 @@
 
 <font size=4>
 
-PDB Id: The PDB entry of the protein.
+PDB Id: The PDB entry of protein.
 
 Mutated Chain: Protein chain with mutation.
 
-Mutation_PDB: The mutation corresponding to the residue numbering found in the protein databank. The first character is one letter amino acid code for the wild-type residue, the second to penultimate characters indicate residue number, and the final character indicates the mutant amino acid.
+Mutation_PDB: The mutation corresponding to the residue numbering found in the Protein Data Bank. The first character is one letter amino acid code for the wild-type residue, the second to penultimate characters indicate residue number, and the final character indicates the mutant amino acid.
 
-UniProt: The UniProt ID of the protein.
+UniProt: The UniProt ID of protein.
 
 Mutation_UNP: The mutation corresponding to the residue numbering found in the protein sequence.
 
 DDGexp: Experimental changes of unfolding Gibbs free energy upon mutations (in kcal/mol).
 
-Location: Location of the mutated site on the protein.
+Location: Location of the mutated site in the protein structure (core or surface).
 
-PremPS: Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively. 
+PremPS: Predicted changes of unfolding free energy upon mutations by PremPS (in kcal/mol). Positive and negative sign corresponds to destabilizing and stabilizing mutations, respectively.
 
-Resolution: Resolution of the crystal structures (in Å).
+Resolution: Resolution of structures (in Å).
 
-Method: Experimental method of the crystal structures.
+Method: Experimental methods for resolving protein structures including X-ray ("x-ray"), NMR ("nmr") or Cryo-EM ("em").
 
-Aggregate state: The aggregate state of the crystal structures.
+Aggregate state: Multimeric state of a protein structure including monomer ("mo"), homomer ("ho") and heteromer ("he").
 
-Weight: Total structure weight of the crystal structures.
+Weight: The molecular weight of a protein structure.
 
 Sequence identity: Sequence identity between target sequences and templates.
 
-RMSD: The root mean square deviation of the coordinates of all Cα atoms between crystal and modeled structures (in Å).
+RMSD: The root-mean-square deviation between coordinates of all Cα atoms of experimental and modeled structures (in Å).
 
 **The rest of columns are predicted changes of unfolding free energy upon mutations by four other methods (in kcal/mol).**
 
