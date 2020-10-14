@@ -130,7 +130,7 @@ PremPS requires the following software and packages.
 	pathrscript = path for running Rscript  # /usr/local/bin/Rscript
 
 </font> 
-
+   The FoldX software needs to be installed in the working directory 
 #### III. RUNNING PremPS
 
 <font size=4>
