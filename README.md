@@ -153,6 +153,6 @@ PremPS is only intended to run on *linux* operating systems.
 
 <font size=4>
 
-You will need to have Python 2.7 (or higher) and R 3.4.0 (or higher) installed.
+You will need to have Python 2.7 and R 3.4.0 (or higher) installed.
 
 </font>
