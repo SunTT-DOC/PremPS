@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-import os, sys, os.path, commands, re, getopt, datetime, time
+import os, sys, os.path, re, getopt, datetime, time
 from string import ascii_uppercase
 from string import ascii_lowercase
 from collections import defaultdict
@@ -63,52 +63,50 @@ map_surface = {'A':118.1,'R':256.0,'N':165.5,'D':158.7,'C':146.1,'Q':193.2,
 
 def ProPDB1():
     pdball = []
-    with open(in_file, 'r') as f:
-        f.next()
-        for line in f:
-            ff = line.split('\t')
-            pdb = ff[0].split('.')[0]  # 1YYJ.pdb or 1YYJ.pdb1
-            suffix = ff[0].split('.')[1]
-            usedchains = ff[1]
-            if pdb not in pdball:
-                pdball.append(pdb)
-                ffpdb = open(pathoutput + '/' + pdb.lower() + '_p.pdb', 'w')
-                try:
-                    fpdb = open(jobpath + '/' + pdb.upper()+'.'+suffix, 'r')
-                except:
-                    fpdb = open(jobpath + '/' + pdb.lower()+'.'+suffix, 'r')
-                if suffix != "pdb":
-                    ST_play = False
-                    for linepdb in fpdb:
-                        if linepdb[0:5] == "MODEL":
-                            CountModel = linepdb.split()[1]
-                            ST_play = True
-                            continue
-                        if ST_play:
-                            if linepdb[:4] == "ATOM" and linepdb[21] in usedchains and linepdb[17:20].strip() in normal_format_pro:
-                                ffpdb.write("%s                  %s\n" % (
-                                linepdb[0:54].strip('\r\n'), str(linepdb[21:22]) + '_' + str(CountModel)))
-                else: # .pdb
-                    ST_play = True
-                    for linepdb in fpdb:
-                        line_list = re.split(r'\s+', linepdb)
-                        if (line_list[0] == 'MODEL') and ST_play:
-                            countmodel = line_list[1]
-                            ST_play = False
-                        if (line_list[0] == 'MODEL') and (line_list[1] != countmodel):
-                            break
-                        if linepdb[:4] == 'ATOM' and linepdb[21] in usedchains and linepdb[17:20].strip() in normal_format_pro:
-                            ffpdb.write("%s                  %s\n" % (linepdb[0:54].strip('\r\n'), str(linepdb[21:22]) + '_' + str(1)))
-            else:
-                continue
+    f = open(in_file, 'r').readlines()[1:]
+    for line in f:
+        ff = line.split('\t')
+        pdb = ff[0].split('.')[0]  # 1YYJ.pdb or 1YYJ.pdb1
+        suffix = ff[0].split('.')[1]
+        usedchains = ff[1]
+        if pdb not in pdball:
+            pdball.append(pdb)
+            ffpdb = open(pathoutput + '/' + pdb.lower() + '_p.pdb', 'w')
+            try:
+                fpdb = open(jobpath + '/' + pdb.upper()+'.'+suffix, 'r')
+            except:
+                fpdb = open(jobpath + '/' + pdb.lower()+'.'+suffix, 'r')
+            if suffix != "pdb":
+                ST_play = False
+                for linepdb in fpdb:
+                    if linepdb[0:5] == "MODEL":
+                        CountModel = linepdb.split()[1]
+                        ST_play = True
+                        continue
+                    if ST_play:
+                        if linepdb[:4] == "ATOM" and linepdb[21] in usedchains and linepdb[17:20].strip() in normal_format_pro:
+                            ffpdb.write("%s                  %s\n" % (
+                            linepdb[0:54].strip('\r\n'), str(linepdb[21:22]) + '_' + str(CountModel)))
+            else: # .pdb
+                ST_play = True
+                for linepdb in fpdb:
+                    line_list = re.split(r'\s+', linepdb)
+                    if (line_list[0] == 'MODEL') and ST_play:
+                        countmodel = line_list[1]
+                        ST_play = False
+                    if (line_list[0] == 'MODEL') and (line_list[1] != countmodel):
+                        break
+                    if linepdb[:4] == 'ATOM' and linepdb[21] in usedchains and linepdb[17:20].strip() in normal_format_pro:
+                        ffpdb.write("%s                  %s\n" % (linepdb[0:54].strip('\r\n'), str(linepdb[21:22]) + '_' + str(1)))
+        else:
+            continue
     ffpdb.close()
     fpdb.close()
 
 
 def del_unknown_incomplete():
-    residues = [k for k, v in map_three_one.iteritems() if v!= 'X']
-    f = open(in_file, 'r')
-    f.next()
+    residues = [k for k, v in map_three_one.items() if v!= 'X']
+    f = open(in_file, 'r').readlines()[1:]
     for line in f:
         ff = line.split("\t")
         pdbid = ff[0].split('.')[0].lower()
@@ -140,38 +138,36 @@ def del_unknown_incomplete():
             fw.write(''.join([y for x in allresidues for y in x]))
         break
     os.system('mv {}/{}_p_test.pdb {}/{}_p.pdb'.format(pathoutput,pdbid, pathoutput,pdbid))
-    f.close()
 
 
 # produce .pdb for each chain in 1YYJ.pdb
 def splitchain():
     pdball = []
-    with open(in_file, 'r') as f:
-        f.next()
-        for line in f:
-            ff = line.split('\t')
-            pdbfile = ff[0]  # 1YYJ.pdb
-            pdb = pdbfile.split('.')[0]  # 1YYJ
-            partner1 = ff[1].split('.')
-            if pdbfile not in pdball:
-                for chain in list(partner1):
-                    f1 = open(pathoutput + '/' + pdb.lower() + '_p.pdb', 'r')
-                    fw = open(pathoutput + '/' + pdb + '_' + chain + '.pdb', 'w')
-                    for line1 in f1:
-                        if chain == line1[72:].strip():
-                            fw.write(line1)
-                pdball.append(pdbfile)
+    f = open(in_file, 'r').readlines()[1:]
+    for line in f:
+        ff = line.split('\t')
+        pdbfile = ff[0]  # 1YYJ.pdb
+        pdb = pdbfile.split('.')[0]  # 1YYJ
+        partner1 = ff[1].split('.')
+        if pdbfile not in pdball:
+            for chain in list(partner1):
+                f1 = open(pathoutput + '/' + pdb.lower() + '_p.pdb', 'r')
+                fw = open(pathoutput + '/' + pdb + '_' + chain + '.pdb', 'w')
+                for line1 in f1:
+                    if chain == line1[72:].strip():
+                        fw.write(line1)
+            pdball.append(pdbfile)
 
 
 # processing pdb files and prepair command files
 # produce 1YYJ_A_1.seq, 1YYJ_CH1.pdb by 1YYJ_A_1.pdb.
 # write files：1yyj.input.cleaned
 def CleanPdb():
-    first_line = file(in_file, 'r').readlines()[0][:-1]
+    first_line = open(in_file, 'r').readlines()[0][:-1]
     fw = open(in_file + ".cleaned", "w")  # 1yyj.input.cleaned
     fw.write("%s\t%s\t%s\t%s\n" % (first_line, "PDBid", "NewChains", "Mutation_cleaned"))
 
-    second_line = file(in_file, 'r').readlines()[1]
+    second_line = open(in_file, 'r').readlines()[1]
     ff = second_line.split("\t")
     pdb = ff[0].split(".")[0]  # 1YYJ
     partner1 = ff[1].split(".")  # [A_1]
@@ -201,8 +197,7 @@ def CleanPdb():
         resnum = line1[22:27].strip()  # 1
         # write 1YYJ_A_1.seq, 1YYJ_A_1.var
         mutchainall = []
-        f = open(in_file, 'r')
-        f.next()
+        f = open(in_file, 'r').readlines()[1:]
         for line in f:
             ff = line.split("\t")
             mut = ff[3].strip()  # P10A
@@ -217,7 +212,6 @@ def CleanPdb():
                     mut_clean = str(map_three_one[resname]) + mapchaindict[chains] + str(count) + mut[-1:]
                     fw.write("%s\t%s\t%s\t%s\n" % (line[:-1], pdb, newpartner1, mut_clean))
                     fvar.write("%s\n" % (str(map_three_one[resname]) + str(count) + mut[-1:]))
-        f.close()
 
         fwpdb = open(pathoutput + "/" + pdb + "_CH" + str(countchain) + ".pdb", "w")
         fwpdb.write(
@@ -256,8 +250,7 @@ def CleanPdb():
                             linepdb[0:16], linepdb[17:21], mapchaindict[chains], str(count), linepdb[27:]))
 
                     mutchainall = []
-                    f = open(in_file, 'r')
-                    f.next()
+                    f = open(in_file, 'r').readlines()[1:]
                     for line in f:
                         ff = line.split("\t")
                         mut = ff[3]  # G9A
@@ -271,8 +264,6 @@ def CleanPdb():
                             fw.write(
                                 "%s\t%s\t%s\t%s\n" % (line[:-1], pdb, newpartner1, mut_clean))
                             fvar.write("%s\n" % (str(map_three_one[resnamepdb]) + str(count) + mut[-1:]))
-
-                    f.close()
 
                 resname = linepdb[17:20].strip()
                 resnum = linepdb[22:27].strip()
@@ -288,34 +279,32 @@ def CleanPdb():
 # produce renumbered and processed 1YYJ.pdb wild-type pdb structure
 def wtpdb():
     pdball = []
-    with open(in_file + ".cleaned", 'r') as f:
-        f.next()
-        for line in f:
-            ff = line.split("\t")
-            pdb = ff[6]  # 1YYJ
-            if pdb not in pdball:
-                commands.getoutput('cat %s/%s_CH*.pdb > %s/%s.pdb' % (pathoutput, pdb, pathoutput, pdb))
-                pdball.append(pdb)
+    f = open(in_file + ".cleaned", 'r').readlines()[1:]
+    for line in f:
+        ff = line.split("\t")
+        pdb = ff[6]  # 1YYJ
+        if pdb not in pdball:
+            os.system('cat %s/%s_CH*.pdb > %s/%s.pdb' % (pathoutput, pdb, pathoutput, pdb))
+            pdball.append(pdb)
 
 
 # calculate secondary structure  with DSSP using wild type crystal structure of mutchain, 1YYJ_A_1.pdb, produce 1YYJ.dssp
 def dssp():
     pdball = []
-    with open(in_file + ".cleaned", 'r') as f:
-        f.next()
-        for line in f:
-            ff = line.strip().split('\t')
-            pdb = ff[6]  # 1YYJ
-            if pdb not in pdball:
-                pdball.append(pdb)
-                os.system('%s %s/%s.pdb %s/%s.dssp' % (pathmkdssp,pathoutput, pdb, pathoutput, pdb))
+    f = open(in_file + ".cleaned", 'r').readlines()[1:]
+    for line in f:
+        ff = line.strip().split('\t')
+        pdb = ff[6]  # 1YYJ
+        if pdb not in pdball:
+            pdball.append(pdb)
+            os.system('%s %s/%s.pdb %s/%s.dssp' % (pathmkdssp,pathoutput, pdb, pathoutput, pdb))
 
 
 # DOMH
 def hydrophobicity_scales():
     hydrophobicity_scales = pd.read_csv(pathpara + '/hydrophobicity_scales.txt', header=0, index_col=0,sep = '\t')
-    with open('{}/{}_hydroscales.txt'.format(pathoutput, jobid), 'w') as fw, open(in_file + '.cleaned') as f:
-        f.next()
+    f = open(in_file + '.cleaned').readlines()[1:]
+    with open('{}/{}_hydroscales.txt'.format(pathoutput, jobid), 'w') as fw:
         fw.write('{}\n'.format('\t'.join(['PDB_ID', 'Mutation_PDB', 'dhydroscales_omh'])))
         for line in f:
             ff = line.strip().split('\t')
@@ -332,15 +321,14 @@ def hydrophobicity_scales():
 # DCS
 def run_provean():
     mutchainall = []
-    with open(in_file + ".cleaned", 'r') as f1:
-        f1.next()
-        for line in f1:
-            ff = line.strip().split('\t')
-            mutchain = ff[2]
-            pdb = ff[6]
-            if mutchain not in mutchainall:
-                mutchainall.append(mutchain)
-                os.system('provean.sh -q %s/%s_%s.seq -v %s/%s_%s.var > %s/provean_%s_%s.out --num_threads 30' % (pathoutput,pdb,mutchain,pathoutput,pdb,mutchain,pathoutput,pdb,mutchain))
+    f1 = open(in_file + ".cleaned", 'r').readlines()[1:]
+    for line in f1:
+        ff = line.strip().split('\t')
+        mutchain = ff[2]
+        pdb = ff[6]
+        if mutchain not in mutchainall:
+            mutchainall.append(mutchain)
+            os.system('provean.sh -q %s/%s_%s.seq -v %s/%s_%s.var > %s/provean_%s_%s.out --num_threads 30' % (pathoutput,pdb,mutchain,pathoutput,pdb,mutchain,pathoutput,pdb,mutchain))
 
 
 # N_hydro, N_charg
@@ -351,34 +339,26 @@ def neighbor_res():
     with open(pathoutput+'/'+jobid+'.neighbor','w') as fw:
         fw.write('\t'.join(['PDBfile','Chains','MutChain','Mutation_PDB','Result_Id','isPI','PDBid','NewChains','Mutation_cleaned',
             'hydrophobic_wt_2d','charged_wt_2d'])+'\n')
-        with open(in_file+'.cleaned') as f:
-            f.next()
-            for line in f:
-                pdb = line.strip().split('\t')[6].lower()
-                mutchain = line.strip().split('\t')[2]
-                mut = line.strip().split('\t')[-1].lower()
-                seq_wt = open(pathoutput+'/'+pdb.upper()+'_'+mutchain+'.seq').readlines()[1]
-                mutloc = int(mut[2:-1])
-                if mutloc-11 >=0:
-                    istart = mutloc-11-1
-                else:
-                    istart = 0
-                if mutloc+11 <= len(seq_wt)-1:
-                    iend = mutloc+11
-                else:
-                    iend = len(seq_wt)
-                # wt
-                hydrophobic_wt,negatively_charged_wt,positively_charged_wt = 0,0,0
-                for i in range(istart,iend):
-                    if seq_wt[i] in hydrophobic:
-                        hydrophobic_wt += 1
-                    if seq_wt[i] in negatively_charged:
-                        negatively_charged_wt += 1
-                    if seq_wt[i] in positively_charged:
-                        positively_charged_wt += 1
-                charged_wt_2d = negatively_charged_wt+positively_charged_wt
-
-                fw.write(line.strip()+'\t'+'\t'.join([str(hydrophobic_wt),str(charged_wt_2d)])+'\n')
+        f = open(in_file+'.cleaned').readlines()[1:]
+        for line in f:
+            pdb = line.strip().split('\t')[6].lower()
+            mutchain = line.strip().split('\t')[2]
+            mut = line.strip().split('\t')[-1].lower()
+            seq_wt = open(pathoutput+'/'+pdb.upper()+'_'+mutchain+'.seq').readlines()[1]
+            mutloc = int(mut[2:-1])
+            istart = mutloc-11-1 if mutloc-11 >= 0 else 0
+            iend = mutloc+11 if mutloc+11 <= len(seq_wt)-1 else len(seq_wt) 
+            # wt
+            hydrophobic_wt,negatively_charged_wt,positively_charged_wt = 0,0,0
+            for i in range(istart,iend):
+                if seq_wt[i] in hydrophobic:
+                    hydrophobic_wt += 1
+                if seq_wt[i] in negatively_charged:
+                    negatively_charged_wt += 1
+                if seq_wt[i] in positively_charged:
+                    positively_charged_wt += 1
+            charged_wt_2d = negatively_charged_wt+positively_charged_wt
+            fw.write(line.strip()+'\t'+'\t'.join([str(hydrophobic_wt),str(charged_wt_2d)])+'\n')
 
 
 # P_FWY, P_RKDE, P_L
@@ -387,8 +367,8 @@ def solart():
     for i in map_surface.keys():
         allclass = allclass+['buried_'+i,'mod_buried_'+i,'exposed_'+i]
 
-    with open(in_file+'.cleaned') as f, open(pathoutput+'/'+jobid+'.solart','w') as fw:
-        f.next()
+    f = open(in_file+'.cleaned').readlines()[1:]
+    with open(pathoutput+'/'+jobid+'.solart','w') as fw:
         fw.write('PDBid\t%s\n' %('\t'.join(['buried_L','buried_charged_sum','buried_aromatic'])))
         for line in f:
             linelist = line.strip().split('\t')
@@ -442,28 +422,28 @@ def solart():
 
 # PSSM
 def run_PSSM():
-    with open(in_file+'.cleaned') as f:
-        f.next()
-        pdball = []
-        for line in f:
-            linelist = line.strip().split('\t')
-            pdb = linelist[6]
-            mutchain = linelist[2]
-            inputseq_wt = pathoutput+'/'+pdb+'_'+mutchain+'.seq' # !!!
-            output_wt = pathoutput+'/'+pdb+'_'+mutchain
-            # run PSSM
-            if pdb+mutchain not in pdball:
-                pdball.append(pdb+mutchain)
-                os.system('{} -query {} -db {} -num_iterations 3 -out_ascii_pssm {}.pssm'.format(pathpsiblast,inputseq_wt,pathblastdb,output_wt))
+    f = open(in_file+'.cleaned').readlines()[1:]
+    pdball = []
+    for line in f:
+        linelist = line.strip().split('\t')
+        pdb = linelist[6]
+        mutchain = linelist[2]
+        inputseq_wt = pathoutput+'/'+pdb+'_'+mutchain+'.seq' # !!!
+        output_wt = pathoutput+'/'+pdb+'_'+mutchain
+        # run PSSM
+        if pdb+mutchain not in pdball:
+            pdball.append(pdb+mutchain)
+            os.system('{} -query {} -db {} -num_iterations 3 -out_ascii_pssm {}.pssm'.format(pathpsiblast,inputseq_wt,pathblastdb,output_wt))
 
 
 # get result form PSSM
 def get_PSSM():
     dindex = {'A':0,'R':1,'N':2,'D':3,'C':4,'Q':5,'E':6,'G':7,'H':8,'I':9,'L':10,'K':11,'M':12,'F':13,'P':14,'S':15,'T':16,'W':17,'Y':18,'V':19}
-    with open(in_file+'.cleaned') as f,open(pathoutput+'/'+jobid+'.pssm','w') as fw:
-        title = f.next()
+    f = open(in_file+'.cleaned').readlines()
+    with open(pathoutput+'/'+jobid+'.pssm','w') as fw:
+        title = f[0]
         fw.write(title.strip()+'\tposition_score_wtmut\n') 
-        for line in f:
+        for line in f[1:]:
             linelist = line.strip().split('\t')
             pdb = linelist[6]
             mutchain = linelist[2]
@@ -481,13 +461,12 @@ def get_PSSM():
 # get all features to 1yyj.input.cleaned.outdata
 def getenergy():
     fw = open(in_file + ".cleaned.outdata", 'w')
-    first_line = file(in_file + ".cleaned", 'r').readlines()[0][:-1]
+    first_line = open(in_file + ".cleaned", 'r').readlines()[0][:-1]
     fw.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (
             first_line, "Location", "SASA_sol", "SASA_pro", 'DCS', 'DOMH', 'N_Hydro', 'N_Charg',
             'P_L', 'P_RKDE', 'P_FWY', 'PSSM'))
 
-    f = open(in_file + ".cleaned", 'r')
-    f.next()
+    f = open(in_file + ".cleaned", 'r').readlines()[1:]
     for line in f:
         ff = line.strip().split("\t")
         pdb = ff[6].lower()  # 1yyj
@@ -507,32 +486,28 @@ def getenergy():
         else:
             location = 'SUR'
 
-        with open(pathoutput + '/{}_hydroscales.txt'.format(jobid)) as fhydro:
-            fhydro.next()
-            for lhydro in fhydro:
-                lhydro_list = lhydro.strip().split('\t')
-                if mut.upper() == lhydro_list[1]:
-                    hydroscales = '\t'.join(lhydro_list[2:])
+        fhydro = open(pathoutput + '/{}_hydroscales.txt'.format(jobid)).readlines()[1:]
+        for lhydro in fhydro:
+            lhydro_list = lhydro.strip().split('\t')
+            if mut.upper() == lhydro_list[1]:
+                hydroscales = '\t'.join(lhydro_list[2:])
 
-        with open(pathoutput + '/{}.neighbor'.format(jobid)) as fnei:
-            fnei.next()
-            for lnei in fnei:
-                lnei_list = lnei.strip().split('\t')
-                if mut.upper() == lnei_list[8]:
-                    neighbor_res = '\t'.join(lnei_list[9:])
+        fnei = open(pathoutput + '/{}.neighbor'.format(jobid)).readlines()[1:]
+        for lnei in fnei:
+            lnei_list = lnei.strip().split('\t')
+            if mut.upper() == lnei_list[8]:
+                neighbor_res = '\t'.join(lnei_list[9:])
 
-        with open(pathoutput + '/{}.solart'.format(jobid)) as fsol:
-            fsol.next()
-            for lsol in fsol:
-                lsol_list = lsol.strip().split('\t')
-                sol_ratio = '\t'.join(lsol_list[1:])
+        fsol = open(pathoutput + '/{}.solart'.format(jobid)).readlines()[1:]
+        for lsol in fsol:
+            lsol_list = lsol.strip().split('\t')
+            sol_ratio = '\t'.join(lsol_list[1:])
 
-        with open(pathoutput + '/{}.pssm'.format(jobid)) as fpssm:
-            fpssm.next()
-            for lpssm in fpssm:
-                lpssm_list = lpssm.strip().split('\t')
-                if mut.upper() == lpssm_list[8]:
-                    pssm_out = '\t'.join(lpssm_list[9:])
+        fpssm = open(pathoutput + '/{}.pssm'.format(jobid)).readlines()[1:]
+        for lpssm in fpssm:
+            lpssm_list = lpssm.strip().split('\t')
+            if mut.upper() == lpssm_list[8]:
+                pssm_out = '\t'.join(lpssm_list[9:])
 
         ST_play = False
         with open(pathoutput+'/provean_'+pdb.upper()+'_'+mutchain_nocleaned+'.out','r') as fprovean:
@@ -548,8 +523,6 @@ def getenergy():
         # write final file
         fw.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (
                 line[:-1], location, str(gxg_wt), str(ACC_wt), provean_score, hydroscales, neighbor_res, sol_ratio, pssm_out)) 
-
-    f.close()
     fw.close()
 
 
@@ -565,19 +538,17 @@ def Prediction():
     robjects.globalenv["PredR"] = PredR
     predDDG = r('''PredR''')
 
-    first_line = file(in_file, 'r').readlines()[0][:-1]
+    first_line = open(in_file, 'r').readlines()[0][:-1]
     fw = open(out_file, "w")
     fw.write("%s\t%s\t%s\n" % (first_line, "PremPS", "Location"))
 
-    f = open(outdata, 'r')
-    _unused = f.next()
+    f = open(outdata, 'r').readlines()[1:]
     count = 0
     for line in f:
         ff = line.split("\t")
         fw.write("%s\t%s\t%s\t%s\t%s\t%s\t%3.2f\t%s\n" % (
             ff[0], ff[1], ff[2], ff[3], ff[4], ff[5], predDDG[count], ff[9]))
         count += 1
-    f.close()
     fw.close()
 
 
@@ -595,8 +566,7 @@ def rf_contribution():
 # produce 1YYJ_vmd.psf and 1YYJ_vmd.pdb using 1YYJ_CH1.pdb.
 def vmd_wt():
     pdball = []
-    f = open(in_file + ".cleaned", 'r')
-    _unused = f.next()
+    f = open(in_file + ".cleaned", 'r').readlines()[1:]
     template = open(pathpara + '/vmd.pgn').read()
     for line in f:
         ff = line.split("\t")
@@ -607,21 +577,19 @@ def vmd_wt():
             vmd_pdb = template.replace('protname', pdb).replace('NumChain', str(NumChain)).replace('pathinput', pathpara).replace('pathoutput', pathoutput)
             with open(pathoutput + '/vmd_' + pdb + '.pgn', 'w') as fw:
                 fw.write(vmd_pdb)
-            commands.getoutput('%s -dispdev text -e %s/vmd_%s.pgn' % (pathvmd,pathoutput, pdb))
+            os.system('%s -dispdev text -e %s/vmd_%s.pgn' % (pathvmd,pathoutput, pdb))
             pdball.append(pdb)
             # change HSD to HIS
             os.system('sed -e "s/HSD/HIS/g" %s/%s_vmd.pdb > %s/%s_vmd_temp.pdb' % (pathoutput, pdb, pathoutput, pdb))
             os.system('mv %s %s' % (pathoutput+'/'+pdb+'_vmd_temp.pdb',pathoutput+'/'+pdb+'_vmd.pdb'))
         else:
             continue
-    f.close()
 
 
 # make inputfile for foldx5 with mutchain for calculating folding free energy
 # produce individual_list_1YYJ_A_PA1A.txt,  foldx_buildmodel_1YYJ_A_PA1A.txt,   1YYJ_A_Repair_PA1A.pdb
 def inputfoldx():
-    f = open(in_file + ".cleaned", 'r')
-    f.next()
+    f = open(in_file + ".cleaned", 'r').readlines()[1:]
     for line in f:
         ff = line.split("\t")
         mut = ff[8][:-1]  # PA1A
@@ -631,14 +599,12 @@ def inputfoldx():
         with open('foldx_buildmodel_' + pdb + '_' + mut + '.txt', 'w') as fsc:
             fsc.write('command=BuildModel\npdb=%s\nmutant-file=%s' % (
                 pdb + '_' + mut + '.pdb', 'individual_list_' + pdb + '_' + mut + '.txt'))
-        commands.getoutput("cp %s/%s.pdb %s_%s.pdb" % (pathoutput, pdb, pdb, mut))
-    f.close()
+        os.system("cp %s/%s.pdb %s_%s.pdb" % (pathoutput, pdb, pdb, mut))
 
 
 # build model with foldx, produce Dif_1YYJ_A_Repair_PA1A.fxout
 def runfoldx_mut():
-    f = open(in_file + ".cleaned", 'r')
-    f.next()
+    f = open(in_file + ".cleaned", 'r').readlines()[1:]
     for line in f:
         ff = line.split("\t")
         mut = ff[8][:-1]  # PA1A
@@ -648,25 +614,22 @@ def runfoldx_mut():
         os.system('./foldx -f foldx_buildmodel_%s_%s.txt' % (pdb, mut))
 
         # process outputfile produce by complex
-        commands.getoutput("rm WT_%s_%s_1.pdb" % (pdb, mut))
-        commands.getoutput("rm individual_list_%s_%s.txt" % (pdb, mut))
-        commands.getoutput("rm foldx_buildmodel_%s_%s.txt" % (pdb, mut))
-        commands.getoutput("rm Average_%s_%s.fxout" % (pdb, mut))
-        commands.getoutput("rm Raw_%s_%s.fxout" % (pdb, mut))
-        commands.getoutput("rm PdbList_%s_%s.fxout" % (pdb, mut))
-        commands.getoutput("rm %s_%s.fxout" % (pdb, mut))
-        commands.getoutput("mv Dif_%s_%s.fxout %s/" % (pdb, mut,pathoutput))
-        commands.getoutput("rm %s_%s.pdb" % (pdb, mut))
-        commands.getoutput("mv %s_%s_1.pdb %s/%s_%s.pdb" % (pdb, mut, pathoutput, pdb, mut))
-
-    f.close()
+        os.system("rm WT_%s_%s_1.pdb" % (pdb, mut))
+        os.system("rm individual_list_%s_%s.txt" % (pdb, mut))
+        os.system("rm foldx_buildmodel_%s_%s.txt" % (pdb, mut))
+        os.system("rm Average_%s_%s.fxout" % (pdb, mut))
+        os.system("rm Raw_%s_%s.fxout" % (pdb, mut))
+        os.system("rm PdbList_%s_%s.fxout" % (pdb, mut))
+        os.system("rm %s_%s.fxout" % (pdb, mut))
+        os.system("mv Dif_%s_%s.fxout %s/" % (pdb, mut,pathoutput))
+        os.system("rm %s_%s.pdb" % (pdb, mut))
+        os.system("mv %s_%s_1.pdb %s/%s_%s.pdb" % (pdb, mut, pathoutput, pdb, mut))
 
 
 # split chains and produce pdb files for each chain of mutant pdb, which are used for VMD.
 # produce 1YYJ_PA1A_CH1.pdb by 1YYJ_PA1A.pdb
 def splitchain_mut():
-    f = open(in_file + ".cleaned", 'r')
-    _unused = f.next()
+    f = open(in_file + ".cleaned", 'r').readlines()[1:]
     for line in f:
         ff = line.split("\t")
         pdb = ff[6]
@@ -678,13 +641,11 @@ def splitchain_mut():
             os.system('grep "^.\{21\}%s" %s/%s.pdb > %s/%s_%s.pdb' % (
                 chains, pathoutput, pdb, pathoutput, pdb, 'CH' + str(countchain)))
             countchain += 1
-    f.close()
 
 
 # produce psf and pdb files of mutant with vmd 
 def vmd_mut():
-    f = open(in_file + ".cleaned", 'r')
-    _unused = f.next()
+    f = open(in_file + ".cleaned", 'r').readlines()[1:]
     template = open(pathpara + '/vmd.pgn').read()
     for line in f:
         ff = line.split("\t")
@@ -697,7 +658,7 @@ def vmd_mut():
         vmd_pdb = template.replace('protname', protname).replace('NumChain', str(NumChain)).replace('pathinput', pathpara).replace('pathoutput', pathoutput)
         with open(pathoutput + '/vmd_' + protname + '.pgn', 'w') as fw:
             fw.write(vmd_pdb)
-        commands.getoutput('%s -dispdev text -e %s/vmd_%s.pgn' % (pathvmd, pathoutput, protname))
+        os.system('%s -dispdev text -e %s/vmd_%s.pgn' % (pathvmd, pathoutput, protname))
         with open(pathoutput+'/test.txt','w') as ftitle:
             ftitle.write("REMARK THIS MUTANT(" + pdb + '-' + ff[2] + '-' + ff[3] + ") STRUCTURE IS PRODUCED BY FOLDX\n")
             ftitle.write("REMARK DATE:" + "  " + time.strftime("%x") + "  " + time.strftime("%X") + "   CREATED BY SERVER: PREMPS\n")
@@ -706,7 +667,6 @@ def vmd_mut():
         os.system('rm %s' % (pathoutput+'/test.txt'))
         os.system('sed -e "s/HSD/HIS/g" %s/%s_vmd.pdb > %s/%s_vmd_temp.pdb' % (pathoutput, pdb+'_'+result_id, pathoutput, pdb+'_'+result_id))
         os.system('mv %s %s' % (pathoutput+'/'+pdb+'_'+result_id+'_vmd_temp.pdb',pathoutput+'/'+pdb+'_'+result_id+'_vmd.pdb'))
-    f.close()
 
 
 def main():
@@ -727,7 +687,7 @@ def main():
     rf_contribution()
     vmd_wt()
     # run mutant
-    ispi = file(in_file, 'r').readlines()[1].strip()[-1]
+    ispi = open(in_file, 'r').readlines()[1].strip()[-1]
     if ispi == '1':
         inputfoldx()
         runfoldx_mut()
